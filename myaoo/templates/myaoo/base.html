@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'myaoo/style.css' %}"/>
+    <title> Online Store APP - {% block title %} Welcome!{% endblock %} </title>
+</head>
+<body>
+<div>
+    <h1>{% block myhdg %}Hello {{ request.user.first_name }} {% endblock %}</h1>
+    {% block body_block %}*** {% endblock %}
+</div>
+<hr/>
+<div>
+    <ul>
+        <li class="hbar1"><a href="/myaoo/about/">Find out about this site</a></li>
+        <li class="hbar1"><a href="{% url 'myaoo:index' %}">Click here to return to main page</a><br/></li>
+        <li class="hbar1"><a href="{% url 'myaoo:products' %}">Products</a></li>
+
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<head>
+<head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+     <form id="login_form" method="post" action="{% url 'myaoo:user_login' %}">
+        {% csrf_token %}
+        {{ LoginForm }}
+        <input type="submit" name="submit" value="Submit" />
+    </form>
+    <li><a href="{% url 'myaoo:register_user' %}">Register</a> </li>
+    <p><a href="{% url "myaoo:password_reset" %}">Forgotten your password?</a></p>
+
+</body>
+</html>

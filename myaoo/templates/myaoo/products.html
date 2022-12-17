@@ -1,0 +1,15 @@
+{% extends 'myaoo/base.html' %}
+{% block myhdg %}Hello {{ request.user.first_name }} {% endblock %}
+{% block body_block %}
+    {% if prodlist %}
+        <h4> Products : </h4>
+        <ul>
+            {% for prods in prodlist %}
+            <li>
+                <p><a href={% url 'myaoo:productdetail' prods.id %}>{{prods.name}}</a></p>
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <p><a href="{% url 'myaoo:placeorder' %}">Place order</a></p>
+{% endblock %}

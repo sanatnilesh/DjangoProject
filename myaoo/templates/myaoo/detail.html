@@ -1,0 +1,19 @@
+{% extends 'myaoo/base.html' %}
+{% block title %}Detail{% endblock %}
+{% block myhdg %}Hello {{ request.user.first_name }} {% endblock %}
+{% block body_block %}
+    <body>
+    {% if category %}
+        <h3>Category Name - {{ category.name }}</h3>
+        <h4>Category Warehouse - {{ category.warehouse }}</h4>
+        <h4>List of products for the {{ category.name }} category</h4>
+        <ol>
+            {% for product in products %}
+                <li> {{ product.name }} </li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <strong>There are no available categories!</strong>
+    {% endif %}
+    <p><a href="{% url 'myaoo:index' %}">Index page</a></p>
+{% endblock %}
